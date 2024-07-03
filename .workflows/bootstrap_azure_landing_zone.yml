@@ -1,10 +1,8 @@
 name: Bootstrap Azure Landign Zone pre-requisites with Terraform and Trigger Azure DevOps Pipeline
-
 on:
   push:
     branches:
-      - main
-
+      - main  
 jobs:
   deploy_and_trigger:
     runs-on: ubuntu-latest
@@ -24,6 +22,9 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
+
+      - name: Terraform Validate
+        run: terraform validate
 
       - name: Terraform Plan
         run: terraform plan
